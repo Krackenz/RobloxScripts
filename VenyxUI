@@ -1698,7 +1698,7 @@ do
 	end
 	
 	function section:addDropdown(title, list, callback)
-		wait(.1)
+		task.wait()
 		local dropdown = utility:Create("Frame", {
 			Name = "Dropdown",
 			Parent = self.container,
@@ -1791,20 +1791,24 @@ do
 		search.Button.MouseButton1Click:Connect(function()
 			if search.Button.Rotation == 0 then
 				self:updateDropdown(dropdown, nil, list, callback)
+				task.wait()
 			else
 				self:updateDropdown(dropdown, nil, nil, callback)
+				task.wait()
 			end
 		end)
 		
 		search.TextBox.Focused:Connect(function()
 			if search.Button.Rotation == 0 then
 				self:updateDropdown(dropdown, nil, list, callback)
+				task.wait()
 			end
-			
+			task.wait()
 			focused = true
 		end)
 		
 		search.TextBox.FocusLost:Connect(function()
+			task.wait()
 			focused = false
 		end)
 		
@@ -1814,13 +1818,15 @@ do
 				list = #list ~= 0 and list 
 				
 				self:updateDropdown(dropdown, nil, list, callback)
+				task.wait()
 			end
 		end)
 		
 		dropdown:GetPropertyChangedSignal("Size"):Connect(function()
 			self:Resize()
+			task.wait()
 		end)
-		wait(.1)
+		task.wait()
 		return dropdown
 	end
 	
