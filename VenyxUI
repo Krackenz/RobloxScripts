@@ -1,3 +1,9 @@
+for i,v in pairs(game:GetService("CoreGui"):GetDescendants()) do
+	if v.Name == "Main" and v.Image == "rbxassetid://4641149554" then
+		v.Parent:Destroy()
+	end
+end
+
 function RandomVariable(length)
 	local res = ""
 	for i = 1, length do
@@ -7,7 +13,7 @@ function RandomVariable(length)
 	return res
 end
 
-maintitle1 = RandomVariable(math.random(1,7))
+maintitle1 = RandomVariable(math.random(1,5))
 -- init
 local player = game.Players.LocalPlayer
 local mouse = player:GetMouse()
