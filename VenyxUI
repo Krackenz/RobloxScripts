@@ -1698,6 +1698,7 @@ do
 	end
 	
 	function section:addDropdown(title, list, callback)
+		wait(.1)
 		local dropdown = utility:Create("Frame", {
 			Name = "Dropdown",
 			Parent = self.container,
@@ -1819,7 +1820,7 @@ do
 		dropdown:GetPropertyChangedSignal("Size"):Connect(function()
 			self:Resize()
 		end)
-		
+		wait(.1)
 		return dropdown
 	end
 	
