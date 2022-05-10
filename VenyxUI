@@ -2115,8 +2115,9 @@ do
 	
 	function section:updateDropdown(dropdown, title, list, callback)
 		dropdown = self:getModule(dropdown)
-		
+		task.wait()
 		if title then
+			task.wait()
 			dropdown.Search.TextBox.Text = title
 		end
 		
@@ -2127,10 +2128,12 @@ do
 		for i, button in pairs(dropdown.List.Frame:GetChildren()) do
 			if button:IsA("ImageButton") then
 				button:Destroy()
+				task.wait()
 			end
 		end
 			
 		for i, value in pairs(list or {}) do
+			task.wait()
 			local button = utility:Create("ImageButton", {
 				Parent = dropdown.List.Frame,
 				BackgroundTransparency = 1,
@@ -2157,7 +2160,9 @@ do
 			})
 			
 			button.MouseButton1Click:Connect(function()
+				task.wait()
 				if callback then
+					task.wait()
 					callback(value, function(...)
 						self:updateDropdown(dropdown, ...)
 					end)	
@@ -2165,7 +2170,7 @@ do
 
 				self:updateDropdown(dropdown, value, nil, callback)
 			end)
-			
+			task.wait()
 			entries = entries + 1
 		end
 		
@@ -2175,16 +2180,18 @@ do
 		utility:Tween(dropdown.Search.Button, {Rotation = list and 180 or 0}, 0.3)
 		
 		if entries > 3 then
-		
+			task.wait()
 			for i, button in pairs(dropdown.List.Frame:GetChildren()) do
+				task.wait()
 				if button:IsA("ImageButton") then
 					button.Size = UDim2.new(1, -6, 0, 30)
 				end
 			end
-			
+			task.wait()
 			frame.CanvasSize = UDim2.new(0, 0, 0, (entries * 34) - 4)
 			frame.ScrollBarImageTransparency = 0
 		else
+			task.wait()
 			frame.CanvasSize = UDim2.new(0, 0, 0, 0)
 			frame.ScrollBarImageTransparency = 1
 		end
