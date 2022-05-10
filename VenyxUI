@@ -136,6 +136,7 @@ do
 		input.InputEnded:Connect(function(key)
 			if key.UserInputType == Enum.UserInputType.MouseButton1 then
 				for i, callback in pairs(self.ended) do
+					task.wait()
 					callback()
 				end
 			end
@@ -143,7 +144,7 @@ do
 	end
 	
 	function utility:BindToKey(key, callback)
-		 
+		 task.wait()
 		self.keybinds[key] = self.keybinds[key] or {}
 		
 		table.insert(self.keybinds[key], callback)
@@ -152,6 +153,7 @@ do
 			UnBind = function()
 				for i, bind in pairs(self.keybinds[key]) do
 					if bind == callback then
+						task.wait()
 						table.remove(self.keybinds[key], i)
 					end
 				end
@@ -210,6 +212,7 @@ do
 	end
 	
 	function utility:DraggingEnded(callback)
+		task.wait()
 		table.insert(self.ended, callback)
 	end
 	
@@ -518,7 +521,7 @@ do
 	-- new modules
 	
 	function library:Notify(title, text, callback)
-	
+		task.wait()
 		-- overwrite last notification
 		if self.activeNotification then
 			self.activeNotification = self.activeNotification()
@@ -657,6 +660,7 @@ do
 			end
 			
 			if callback then
+				task.wait()
 				callback(true)
 			end
 			
@@ -670,6 +674,7 @@ do
 			end
 			
 			if callback then
+				task.wait()
 				callback(false)
 			end
 			
@@ -678,6 +683,7 @@ do
 	end
 	
 	function section:addButton(title, callback)
+		task.wait()
 		local button = utility:Create("ImageButton", {
 			Name = "Button",
 			Parent = self.container,
@@ -726,7 +732,9 @@ do
 			utility:Tween(button.Title, {TextSize = 12}, 0.2)
 			
 			if callback then
+				task.wait()
 				callback(function(...)
+					task.wait()
 					self:updateButton(button, ...)
 				end)
 			end
@@ -738,6 +746,7 @@ do
 	end
 	
 	function section:addToggle(title, default, callback)
+		task.wait()
 		local toggle = utility:Create("ImageButton", {
 			Name = "Toggle",
 			Parent = self.container,
@@ -801,7 +810,9 @@ do
 			self:updateToggle(toggle, nil, active)
 			
 			if callback then
+				task.wait()
 				callback(active, function(...)
+					task.wait()
 					self:updateToggle(toggle, ...)
 				end)
 			end
@@ -811,6 +822,7 @@ do
 	end
 	
 	function section:addTextbox(title, default, callback)
+		task.wait()
 		local textbox = utility:Create("ImageButton", {
 			Name = "Textbox",
 			Parent = self.container,
@@ -893,7 +905,9 @@ do
 			end
 			
 			if callback then
+				task.wait()
 				callback(input.Text, nil, function(...)
+					task.wait()
 					self:updateTextbox(textbox, ...)
 				end)
 			end
@@ -909,7 +923,9 @@ do
 			}, 0.2)
 			
 			if callback then
+				task.wait()
 				callback(input.Text, true, function(...)
+					task.wait()
 					self:updateTextbox(textbox, ...)
 				end)
 			end
@@ -919,6 +935,7 @@ do
 	end
 	
 	function section:addKeybind(title, default, callback, changedCallback)
+		task.wait()
 		local keybind = utility:Create("ImageButton", {
 			Name = "Keybind",
 			Parent = self.container,
@@ -986,13 +1003,16 @@ do
 			animate()
 			
 			if callback then
+				task.wait()
 				callback(function(...)
+					task.wait()
 					self:updateKeybind(keybind, ...)
 				end)
 			end
 		end}
 		
 		if default and callback then
+			task.wait()
 			self:updateKeybind(keybind, nil, default)
 		end
 		
@@ -1024,6 +1044,7 @@ do
 	end
 	
 	function section:addColorPicker(title, default, callback)
+		task.wait()
 		local colorpicker = utility:Create("ImageButton", {
 			Name = "ColorPicker",
 			Parent = self.container,
@@ -1353,14 +1374,18 @@ do
 		self.colorpickers[colorpicker] = {
 			tab = tab,
 			callback = function(prop, value)
+				task.wait()
 				rgb[prop] = value
 				hue, sat, brightness = Color3.toHSV(Color3.fromRGB(rgb.r, rgb.g, rgb.b))
 			end
 		}
 		
 		local callback = function(value)
+			task.wait()
 			if callback then
+				task.wait()
 				callback(value, function(...)
+					task.wait()
 					self:updateColorPicker(colorpicker, ...)
 				end)
 			end
@@ -1411,6 +1436,7 @@ do
 						
 						self:updateColorPicker(colorpicker, nil, color3)
 						callback(color3)
+						task.wait()
 					end
 				end)
 			end
@@ -1551,6 +1577,7 @@ do
 	end
 	
 	function section:addSlider(title, default, min, max, callback)
+		task.wait()
 		local slider = utility:Create("ImageButton", {
 			Name = "Slider",
 			Parent = self.container,
@@ -1651,8 +1678,11 @@ do
 		local dragging, last
 		
 		local callback = function(value)
+			task.wait()
 			if callback then
+				task.wait()
 				callback(value, function(...)
+					task.wait()
 					self:updateSlider(slider, ...)
 				end)
 			end
@@ -1682,9 +1712,11 @@ do
 		end)
 		
 		textbox.FocusLost:Connect(function()
+			task.wait()
 			if not tonumber(textbox.Text) then
 				value = self:updateSlider(slider, nil, default or min, min, max)
 				callback(value)
+				task.wait()
 			end
 		end)
 		
@@ -1696,6 +1728,7 @@ do
 			elseif not allowed[text] then	
 				value = self:updateSlider(slider, nil, tonumber(text) or value, min, max)
 				callback(value)
+				task.wait()
 			end
 		end)
 		
@@ -2053,6 +2086,7 @@ do
 	end
 	
 	function section:updateColorPicker(colorpicker, title, color)
+		task.wait()
 		colorpicker = self:getModule(colorpicker)
 		
 		local picker = self.colorpickers[colorpicker]
@@ -2082,7 +2116,9 @@ do
 		utility:Tween(tab.Container.Canvas.Cursor, {Position = UDim2.new(sat, 0, 1 - brightness)}, 0.5)
 		
 		for i, container in pairs(tab.Container.Inputs:GetChildren()) do
+			task.wait()
 			if container:IsA("ImageLabel") then
+				task.wait()
 				local value = math.clamp(color3[container.Name], 0, 1) * 255
 				
 				container.Textbox.Text = math.floor(value)
@@ -2169,6 +2205,7 @@ do
 				if callback then
 					task.wait()
 					callback(value, function(...)
+						task.wait()
 						self:updateDropdown(dropdown, ...)
 					end)	
 				end
