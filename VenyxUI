@@ -7,7 +7,7 @@ function RandomVariable(length)
 	return res
 end
 
-maintitle1 = RandomVariable(math.random(1,5))
+maintitle1 = RandomVariable(math.random(1,7))
 -- init
 local player = game.Players.LocalPlayer
 local mouse = player:GetMouse()
