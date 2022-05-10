@@ -164,6 +164,7 @@ do
 		
 		while key.UserInputType ~= Enum.UserInputType.Keyboard	 do
 			key = input.InputBegan:Wait()
+			task.wait()
 		end
 		
 		wait() -- overlapping connection
@@ -1436,6 +1437,7 @@ do
 				
 				callback(color3)
 				utility:Wait()
+				task.wait()
 			end
 		end)
 		
@@ -1457,6 +1459,7 @@ do
 				
 				callback(color3)
 				utility:Wait()
+				task.wait()
 			end
 		end)
 		
@@ -1475,6 +1478,7 @@ do
 				
 				if debounce then
 					while debounce do
+						task.wait()
 						utility:Wait()
 					end
 				end
@@ -1670,6 +1674,7 @@ do
 				callback(value)
 				
 				utility:Wait()
+				task.wait()
 			end
 			
 			wait(0.5)
