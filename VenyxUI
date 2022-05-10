@@ -1,8 +1,4 @@
-for i,v in pairs(game:GetService("CoreGui"):GetDescendants()) do
-	if v.Name == "Main" and v.Image == "rbxassetid://4641149554" then
-		v.Parent:Destroy()
-	end
-end
+
 
 function RandomVariable(length)
 	local res = ""
