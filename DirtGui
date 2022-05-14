@@ -1,8 +1,7 @@
     local Lib = {}
-    C1C = 0
-    for i,v in pairs(game:GetService("CoreGui"):GetDescendants()) do
-        if v:IsA("ImageLabel") and v.Image == 'rbxassetid://3570695787' then
-            if v.Parent then
+    for i,v in pairs(game.CoreGui:GetDescendants()) do
+        if v.Name == Main and v.Image == "rbxassetid://3570695787" then
+            if v.Parent ~= nil then
                 v.Parent:Destroy()
             end
         end
@@ -606,7 +605,7 @@
             Text.Selectable = false
             Text.Size = UDim2.new(1, 0, 1, 0)
             Text.Font = Enum.Font.GothamBold
-            Text.Text = tostring(options.list[1])
+            Text.Text = name
             Text.TextColor3 = Color3.fromRGB(255, 255, 255)
             Text.TextSize = 12.000
             Text.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
@@ -643,7 +642,7 @@
                             Text_2.BackgroundTransparency = 1.000
                             Text_2.Size = UDim2.new(0, 132, 0, 20)
                             Text_2.Font = Enum.Font.GothamBold
-                            Text_2.Text = "  "..name
+                            Text_2.Text = "  "..tostring(v)
                             Text_2.TextColor3 = Color3.fromRGB(255, 255, 255)
                             Text_2.TextSize = 12.000
                             Text_2.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
