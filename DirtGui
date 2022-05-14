@@ -1,3 +1,4 @@
+    print("Change1")
     local Lib = {}
     for i,v in pairs(game.CoreGui:GetDescendants()) do
         if v:IsA("ImageLabel") and v.Image == "rbxassetid://3570695787" then
