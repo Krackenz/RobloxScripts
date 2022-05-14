@@ -1,7 +1,7 @@
     local Lib = {}
     for i,v in pairs(game.CoreGui:GetDescendants()) do
-        if v.Name == Main and v.Image == "rbxassetid://3570695787" then
-            if v.Parent ~= nil then
+        if v:IsA("ImageLabel") and v.Image == "rbxassetid://3570695787" then
+            if v.Parent then
                 v.Parent:Destroy()
             end
         end
