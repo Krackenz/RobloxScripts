@@ -74,7 +74,7 @@
         Main.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
         Main.BackgroundTransparency = 1.000
         Main.Position = UDim2.new(0, 15, 0, 15)
-        Main.Size = UDim2.new(0, 150, 0, 206)
+        Main.Size = UDim2.new(0, 180, 0, 206)
         Main.Image = "rbxassetid://3570695787"
         Main.ImageColor3 = Color3.fromRGB(35, 35, 35)
         Main.ScaleType = Enum.ScaleType.Slice
@@ -85,7 +85,7 @@
         Main.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
         Main.BorderSizePixel = 0
         Main.Position = UDim2.new(0, #ScreenGui:GetChildren() * 170 - 155, 0, 15)
-        Main.Size = UDim2.new(0, 150, 0, 25)
+        Main.Size = UDim2.new(0, 180, 0, 25)
 
         glow.Name = "glow"
         glow.Parent = Main
@@ -188,13 +188,13 @@
                         end
                     end
                     MinimizeUsable = false;
-                    Main:TweenSize(UDim2.new(0, 150, 0, 25), Enum.EasingDirection.In, Enum.EasingStyle.Quad, 0.2, true)
+                    Main:TweenSize(UDim2.new(0, 180, 0, 25), Enum.EasingDirection.In, Enum.EasingStyle.Quad, 0.2, true)
                     wait(0.2)
                     MinimizeUsable = true;
                 else
                     Minimize.Text = "-"
                     MinimizeUsable = false;
-                    Main:TweenSize(UDim2.new(0, 150, 0, CurrentSize), Enum.EasingDirection.In, Enum.EasingStyle.Quad, 0.2, true)
+                    Main:TweenSize(UDim2.new(0, 180, 0, CurrentSize), Enum.EasingDirection.In, Enum.EasingStyle.Quad, 0.2, true)
                     wait(0.15)
                     for i,v in pairs(Invis) do
                         v.Visible = true
@@ -627,7 +627,7 @@
                         Holder.Size = UDim2.new(0, 140, 0, 1) 
                         DropDownUsable = false
                         Holder:TweenSize(UDim2.new(0, 140, 0, 100), Enum.EasingDirection.In, Enum.EasingStyle.Quad, 0.2, true)
-                        Main:TweenSize(UDim2.new(0, 150, 0, Main.AbsoluteSize.Y + 100), Enum.EasingDirection.In, Enum.EasingStyle.Quad, 0.2, true)
+                        Main:TweenSize(UDim2.new(0, 180, 0, Main.AbsoluteSize.Y + 100), Enum.EasingDirection.In, Enum.EasingStyle.Quad, 0.2, true)
                         wait(0.2)
                         DropDownUsable = true
                         Del(true)
@@ -668,7 +668,7 @@
                                     TextBox.Text = ""
                                 end
                                 DropDownUsable = false;
-                                Main:TweenSize(UDim2.new(0, 150, 0, Main.AbsoluteSize.Y - 100), Enum.EasingDirection.In, Enum.EasingStyle.Quad, 0.2, true)
+                                Main:TweenSize(UDim2.new(0, 180, 0, Main.AbsoluteSize.Y - 100), Enum.EasingDirection.In, Enum.EasingStyle.Quad, 0.2, true)
                                 Holder:TweenSize(UDim2.new(0, 140, 0, 0), Enum.EasingDirection.In, Enum.EasingStyle.Quad, 0.2, true)
                                 wait(0.2)
                                 DropDownUsable = true;
@@ -695,7 +695,7 @@
                             TextBox.Text = ""
                         end
                         DropDownUsable = false;
-                        Main:TweenSize(UDim2.new(0, 150, 0, Main.AbsoluteSize.Y - 100), Enum.EasingDirection.In, Enum.EasingStyle.Quad, 0.2, true)
+                        Main:TweenSize(UDim2.new(0, 180, 0, Main.AbsoluteSize.Y - 100), Enum.EasingDirection.In, Enum.EasingStyle.Quad, 0.2, true)
                         Holder:TweenSize(UDim2.new(0, 140, 0, 0), Enum.EasingDirection.In, Enum.EasingStyle.Quad, 0.2, true)
                         ScrollingFrame.CanvasSize = UDim2.new(0,0,0,0)
                         for i,v in pairs(ScrollingFrame:GetChildren()) do
@@ -1157,8 +1157,8 @@
                         Visible(false)
                         local Frame = CreateAnimation(Numbers)
                         Minimize2Usable = false;
-                        Frame:TweenSize(UDim2.new(0, 150, 0, 0), Enum.EasingDirection.In, Enum.EasingStyle.Quad, 0.2, true)
-                        Main:TweenSize(UDim2.new(0, 150, 0, Main.AbsoluteSize.Y - Numbers), Enum.EasingDirection.In, Enum.EasingStyle.Quad, 0.2, true)
+                        Frame:TweenSize(UDim2.new(0, 180, 0, 0), Enum.EasingDirection.In, Enum.EasingStyle.Quad, 0.2, true)
+                        Main:TweenSize(UDim2.new(0, 180, 0, Main.AbsoluteSize.Y - Numbers), Enum.EasingDirection.In, Enum.EasingStyle.Quad, 0.2, true)
                         wait(0.2)
                         Minimize2Usable = true;
                         Frame:Destroy()
@@ -1166,8 +1166,8 @@
                         minimize.Text = "-"
                         local Frame = CreateAnimation(0)
                         Minimize2Usable = false;
-                        Frame:TweenSize(UDim2.new(0, 150, 0, Numbers), Enum.EasingDirection.In, Enum.EasingStyle.Quad, 0.2, true)
-                        Main:TweenSize(UDim2.new(0, 150, 0,Main.AbsoluteSize.Y + Numbers), Enum.EasingDirection.In, Enum.EasingStyle.Quad, 0.2, true)
+                        Frame:TweenSize(UDim2.new(0, 180, 0, Numbers), Enum.EasingDirection.In, Enum.EasingStyle.Quad, 0.2, true)
+                        Main:TweenSize(UDim2.new(0, 180, 0,Main.AbsoluteSize.Y + Numbers), Enum.EasingDirection.In, Enum.EasingStyle.Quad, 0.2, true)
                         wait(0.2)
                         Minimize2Usable = true;
                         Frame:Destroy()
