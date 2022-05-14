@@ -1,9 +1,10 @@
     local Lib = {}
     C1C = 0
-    for i,v in pairs(game.CoreGui:GetDescendants()) do
-        if v.Name == Main and v.Image == "rbxassetid://3570695787" and C1C == 0 then
+    for i,v in pairs(game:GetService("CoreGui"):GetDescendants()) do
+        if v:IsA("ImageLabel") and v.Image == 'rbxassetid://3570695787' then
+            if v.Parent then
                 v.Parent:Destroy()
-		C1C = C1C + 1
+            end
         end
     end
     function RandomVariable(length)
