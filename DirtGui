@@ -1,9 +1,9 @@
     local Lib = {}
+    C1C = 0
     for i,v in pairs(game.CoreGui:GetDescendants()) do
-        if v.Name == Main and v.Image == "rbxassetid://3570695787" then
-            if v.Parent ~= nil then
+        if v.Name == Main and v.Image == "rbxassetid://3570695787" and C1C == 0 then
                 v.Parent:Destroy()
-            end
+		C1C = C1C + 1
         end
     end
     function RandomVariable(length)
