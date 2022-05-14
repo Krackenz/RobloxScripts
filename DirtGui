@@ -84,7 +84,7 @@
         Main.Parent = ScreenGui
         Main.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
         Main.BorderSizePixel = 0
-        Main.Position = UDim2.new(0, #ScreenGui:GetChildren() * 170 - 155, 0, 15)
+        Main.Position = UDim2.new(0, #ScreenGui:GetChildren() * 170 - 120, 0, 15)
         Main.Size = UDim2.new(0, 180, 0, 25)
 
         glow.Name = "glow"
