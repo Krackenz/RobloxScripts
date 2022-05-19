@@ -1126,6 +1126,7 @@ function Library:CreateMain(Options)
 								end
 							end
                             if Options.refresh then
+                                print("Refreshed List")
                                 tablelist = Options.refreshV
                             end
 							
