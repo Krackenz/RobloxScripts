@@ -1,3 +1,16 @@
+--[[
+
+    _____                  _                   
+   |__  /  _   _   _ __   | |__     ___   _ __ 
+     / /  | | | | | '_ \  | '_ \   / _ \ | '__|
+    / /_  | |_| | | |_) | | | | | |  __/ | |   
+   /____|  \__, | | .__/  |_| |_|  \___| |_|   
+           |___/  |_|                          
+
+   Made by: xTheAlex14#3200
+   Design: inspiration from Luzu#0001
+   
+]]
 
 local Library = {}
 local Objects = {}
@@ -42,6 +55,8 @@ function Library:CreateMain(Options)
 		Position = UDim2.new(0.5, -400, 0.5, -225),
 		Size = UDim2.new(0, 700, 0, 460),
 	})
+
+	-- Drag is not made by me
 	
 	local dragInput
 	local dragStart
@@ -1115,7 +1130,7 @@ function Library:CreateMain(Options)
 						Interactables.selected.Parent = Interactables.dropdown
 						Interactables.listb.Parent = Interactables.dropdown
 						Interactables.list.Parent = Interactables.listb
-						
+        
 						local function refreshlist()
 							
 							for i, v in next, Interactables.list:GetChildren() do
@@ -1123,6 +1138,9 @@ function Library:CreateMain(Options)
 									v:Destroy()
 								end
 							end
+                            if Options.refresh then
+                                tablelist = Options.refreshV
+                            end
 							
 							for i, v in next, tablelist do
 								local button = Library:Create("ImageButton", {
