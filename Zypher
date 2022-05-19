@@ -1,4 +1,20 @@
-print("T2")
+print("T3")
+for i,v in pairs(game:GetService("CoreGui"):GetDescendants()) do
+	if v.Name == "Motherframe" and v:FindFirstChild("ResizeButton") ~= nil then
+		if v.Parent then
+			v.Parent:Destroy()
+		end
+	end
+end
+function RandomVariable(length)
+	local res = ""
+	for i = 1, length do
+		res = res .. string.char(math.random(97, 122))
+		res = res..tostring(math.random(1,9))
+	end
+	return res
+end
+maintitle1 = RandomVariable(math.random(1,5))
 if not SBot1 then
 	SBot1 = "N/A"
 end
@@ -40,12 +56,12 @@ local RS = game:GetService("RunService")
 
 function Library:CreateMain(Options)
 	
-	local nameforcheck = Options.projName
+	local nameforcheck = maintitle1
 	local Main = {}
 	local firstCategory = true
 	
 	Main.Screengui = Library:Create("ScreenGui", {
-		Name = Options.projName,
+		Name = maintitle1,
 		ZIndexBehavior = Enum.ZIndexBehavior.Global,
 		ResetOnSpawn = false,
 	})
