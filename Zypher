@@ -960,7 +960,9 @@ function Library:CreateMain(Options)
 						if Options then
 							if Options.options and not Options.playerlist then
 								tablelist = Options.options
-							elseif Options.options and Options.playerlist then
+                            elseif Options.refresh and not Option.playerlist then 
+                                tablelist = refreshV
+							elseif Options.options and Options.playerlist and not Options.refresh then
 								tablelist = {}
 								
 								for g, f in pairs(Options.options) do
@@ -1215,9 +1217,8 @@ function Library:CreateMain(Options)
 							if Options then
 								if Options.options and not Options.playerlist then
 									tablelist = Options.options
-                                if Options.refresh and not Option.playerlist then 
+                                elseif Options.refresh and not Option.playerlist then 
                                     tablelist = refreshV
-                                end
 								elseif Options.options and Options.playerlist and not Options.refresh then
 									tablelist = {}
 									
@@ -1323,7 +1324,9 @@ function Library:CreateMain(Options)
 						if Options then
 							if Options.options and not Options.playerlist then
 								tablelist = Options.options
-							elseif Options.options and Options.playerlist then
+                            elseif Options.refresh and not Option.playerlist then 
+                                tablelist = refreshV
+							elseif Options.options and Options.playerlist and not Options.refresh then
 								tablelist = {}
 								
 								for g, f in pairs(Options.options) do
@@ -1583,7 +1586,9 @@ function Library:CreateMain(Options)
 							if Options then
 								if Options.options and not Options.playerlist then
 									tablelist = Options.options
-								elseif Options.options and Options.playerlist then
+                                elseif Options.refresh and not Option.playerlist then 
+                                    tablelist = refreshV
+								elseif Options.options and Options.playerlist and not Options.refresh then
 									tablelist = {}
 									
 									for g, f in pairs(Options.options) do
@@ -2322,6 +2327,6 @@ function Library:CreateMain(Options)
 	
 	return Main
 end
-print("Change3")
+print("Change1")
 
 return Library
