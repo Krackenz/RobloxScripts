@@ -1,5 +1,4 @@
-
-
+print("Change")
 local Library = {}
 local Objects = {}
 
@@ -1126,6 +1125,7 @@ function Library:CreateMain(Options)
 									v:Destroy()
 								end
 							end
+							print("Refreshed")
                             if Options.refresh then 
                                 tablelist = refreshV
                             end
@@ -1493,7 +1493,10 @@ function Library:CreateMain(Options)
 									v:Destroy()
 								end
 							end
-							
+							print("Refreshed")
+                            if Options.refresh then 
+                                tablelist = refreshV
+                            end
 							for i, v in next, tablelist do
 								local button = Library:Create("ImageButton", {
 									Name = string.lower(v),
@@ -2329,5 +2332,5 @@ function Library:CreateMain(Options)
 	
 	return Main
 end
-print'c1'
+
 return Library
