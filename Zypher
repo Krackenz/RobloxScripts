@@ -1,4 +1,4 @@
-print("Change2")
+print("Change1")
 
 local Library = {}
 local Objects = {}
@@ -1119,13 +1119,13 @@ function Library:CreateMain(Options)
 						Interactables.list.Parent = Interactables.listb
         
 						local function refreshlist()
-							
+							print("Refresh")
 							for i, v in next, Interactables.list:GetChildren() do
 								if v:IsA("ImageButton") then
 									v:Destroy()
 								end
 							end
-                                    print("Refreshed List")
+                            print("Refreshed List")
 							
 							for i, v in next, tablelist do
 								local button = Library:Create("ImageButton", {
@@ -1170,6 +1170,7 @@ function Library:CreateMain(Options)
 										
 										if dropdownopen then
 											refreshlist()
+                                            print("Refresh")
 											TS:Create(Section.Container, TweenInfo.new(0.1), {
 												Size = Section.Container.Size + UDim2.new(0, 0, 0, 125)
 											}):Play()
