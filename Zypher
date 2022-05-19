@@ -1,4 +1,4 @@
-print("Change2")
+
 
 local Library = {}
 local Objects = {}
@@ -1218,7 +1218,7 @@ function Library:CreateMain(Options)
                                 if Options.refresh and not Option.playerlist then 
                                     tablelist = refreshV
                                 end
-								elseif Options.options and Options.playerlist then
+								elseif Options.options and Options.playerlist and not Options.refresh then
 									tablelist = {}
 									
 									for g, f in pairs(Options.options) do
@@ -2322,5 +2322,6 @@ function Library:CreateMain(Options)
 	
 	return Main
 end
+print("Change3")
 
 return Library
