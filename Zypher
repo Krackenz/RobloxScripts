@@ -1,4 +1,4 @@
-print("T1")
+print("T2")
 if not SBot1 then
 	SBot1 = "N/A"
 end
@@ -1534,6 +1534,7 @@ function Library:CreateMain(Options)
 												table.remove(ABots, RB)
 											end
 										end
+										tablelist = ABots
 									end
 								end
                             end
