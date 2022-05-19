@@ -1,4 +1,4 @@
-print("Change1 Reflected")
+print("Change2")
 
 local Library = {}
 local Objects = {}
@@ -1125,10 +1125,7 @@ function Library:CreateMain(Options)
 									v:Destroy()
 								end
 							end
-                            if Options.refresh then
-                                print("Refreshed List")
-                                tablelist = Options.refreshV
-                            end
+                                    print("Refreshed List")
 							
 							for i, v in next, tablelist do
 								local button = Library:Create("ImageButton", {
