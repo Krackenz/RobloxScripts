@@ -1,4 +1,3 @@
-print("T3")
 for i,v in pairs(game:GetService("CoreGui"):GetDescendants()) do
 	if v.Name == "Motherframe" and v:FindFirstChild("ResizeButton") ~= nil then
 		if v.Parent then
@@ -642,6 +641,7 @@ function Library:CreateMain(Options)
 						Position = UDim2.new(0.0359999985, 0, 0.115000002, 0),
 						Size = UDim2.new(0, 26, 0, 20),
 						Image = "rbxassetid://3570695787",
+                        ImageColor3 = Color3.fromRGB(255, 84, 101),
 						ScaleType = Enum.ScaleType.Slice,
 						SliceCenter = Rect.new(100, 100, 100, 100),
 						SliceScale = 0.040,
@@ -651,6 +651,7 @@ function Library:CreateMain(Options)
 						if Options.default then 
 							State = true 
 							TS:Create(Interactables.ToggleShow, TweenInfo.new(0.1), {
+                                ImageColor3 = Color3.fromRGB(255, 84, 101),
 								Position = UDim2.new(0.53, 0, 0.115, 0)
 							}):Play()
 							if CallBack then 
@@ -664,12 +665,12 @@ function Library:CreateMain(Options)
 						
 						if State then 
 							TS:Create(Interactables.ToggleShow, TweenInfo.new(0.1), {
-                                BackgroundColor3 = Color3.fromRGB(255, 84, 101),
+                                ImageColor3 = Color3.fromRGB(84, 255, 178),
 								Position = UDim2.new(0.53, 0, 0.115, 0)
 							}):Play()
 						else
 							TS:Create(Interactables.ToggleShow, TweenInfo.new(0.1), {
-                                BackgroundColor3 = Color3.fromRGB(84, 255, 178),
+                                ImageColor3 = Color3.fromRGB(255, 84, 101),
 								Position = UDim2.new(0.036, 0, 0.115, 0)
 							}):Play()
 						end
@@ -683,6 +684,7 @@ function Library:CreateMain(Options)
                     function Interactables:ChangeState(State)
                         if State then
 							TS:Create(Interactables.ToggleShow, TweenInfo.new(0.1), {
+                                BackgroundColor3 = Color3.fromRGB(255, 84, 101),
 								Position = UDim2.new(0.53, 0, 0.115, 0)
                             }):Play()
                             if CallBack then 
@@ -690,6 +692,7 @@ function Library:CreateMain(Options)
 							end
 						else
 							TS:Create(Interactables.ToggleShow, TweenInfo.new(0.1), {
+                                BackgroundColor3 = Color3.fromRGB(84, 255, 178),
 								Position = UDim2.new(0.036, 0, 0.115, 0)
                             }):Play()
                             if CallBack then 
