@@ -29,6 +29,7 @@ end
 if not SBot5 then
 	SBot5 = "N/A"
 end
+getgenv().ARefresh = false
 local Library = {}
 local Objects = {}
 
@@ -1531,32 +1532,34 @@ function Library:CreateMain(Options)
 							end
 							print("Refreshed")
                             if Options.refresh then
-								if game:GetService("Players").LocalPlayer.PlayerGui.DialogInventory then
-									if game:GetService("Players").LocalPlayer.PlayerGui.DialogInventory.Enabled == false then
-										game:GetService("Players").LocalPlayer.PlayerGui.DialogInventory.Enabled = true
-										game:GetService("Players").LocalPlayer.PlayerGui.DialogInventory.Enabled = false
-									end
-								end
-								ABL = 0
-								ABots = {}
-								if SBot1 and SBot2 and SBot3 and SBot4 and SBot5 then 
-									SBots = {SBot1,SBot2,SBot3,SBot4,SBot5}
-									if game:GetService("Players").LocalPlayer.PlayerGui:FindFirstChild("DialogInventory") ~= nil then
-										for i,v in pairs (game:GetService("Players").LocalPlayer.PlayerGui.DialogInventory.Frame.ItemsFrameRobo.ItemsFrame.ScrollingFrame:GetDescendants()) do
-											if v.Name == "Button" and v.Lock.Visible == true and v.Parent.Name ~= "ItemButton" then
-												table.insert(ABots,v.Parent.Name)
-												ABL = ABL + 1
-											end
-										end
-										for i,v in next,SBots do
-											RV = tostring(v)
-											RB = table.find(ABots, RV)
-											if RB ~= nil then
-												table.remove(ABots, RB)
-											end
-										end
-										tablelist = ABots
-									end
+                                if getgenv().ARefresh == true then 
+                                    if game:GetService("Players").LocalPlayer.PlayerGui.DialogInventory then
+                                        if game:GetService("Players").LocalPlayer.PlayerGui.DialogInventory.Enabled == false then
+                                            game:GetService("Players").LocalPlayer.PlayerGui.DialogInventory.Enabled = true
+                                            game:GetService("Players").LocalPlayer.PlayerGui.DialogInventory.Enabled = false
+                                        end
+                                    end
+                                    ABL = 0
+                                    ABots = {}
+                                    if SBot1 and SBot2 and SBot3 and SBot4 and SBot5 then 
+                                        SBots = {SBot1,SBot2,SBot3,SBot4,SBot5}
+                                        if game:GetService("Players").LocalPlayer.PlayerGui:FindFirstChild("DialogInventory") ~= nil then
+                                            for i,v in pairs (game:GetService("Players").LocalPlayer.PlayerGui.DialogInventory.Frame.ItemsFrameRobo.ItemsFrame.ScrollingFrame:GetDescendants()) do
+                                                if v.Name == "Button" and v.Lock.Visible == true and v.Parent.Name ~= "ItemButton" then
+                                                    table.insert(ABots,v.Parent.Name)
+                                                    ABL = ABL + 1
+                                                end
+                                            end
+                                            for i,v in next,SBots do
+                                                RV = tostring(v)
+                                                RB = table.find(ABots, RV)
+                                                if RB ~= nil then
+                                                    table.remove(ABots, RB)
+                                                end
+                                            end
+                                            tablelist = ABots
+                                        end
+                                    end
 								end
                             end
 							for i, v in next, tablelist do
