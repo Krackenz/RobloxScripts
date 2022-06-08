@@ -1,4 +1,3 @@
-print("c2")
 for i,v in pairs(game:GetService("CoreGui"):GetDescendants()) do
 	if v.Name == "Motherframe" and v:FindFirstChild("ResizeButton") ~= nil then
 		if v.Parent then
