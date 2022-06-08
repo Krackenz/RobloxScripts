@@ -1522,23 +1522,22 @@ function Library:CreateMain(Options)
 								end
 							end
                             if Options.refresh then
-                                    ABL = 0
-                                    ABots = {}
-                                    SBots = {SBot1,SBot2,SBot3,SBot4,SBot5}
-                                    for i,v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.Data.Robo.Inst:GetChildren()) do
-                                        if v:GetAttribute("Locked") == true then
-                                            table.insert(ABots,v.Name)
-                                        end
+                                ABL = 0
+                                ABots = {}
+                                SBots = {SBot1,SBot2,SBot3,SBot4,SBot5}
+                                for i,v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.Data.Robo.Inst:GetChildren()) do
+                                    if v:GetAttribute("Locked") == true then
+                                        table.insert(ABots,v.Name)
                                     end
-                                    for i,v in next,SBots do
-                                        RV = tostring(v)
-                                        RB = table.find(ABots, RV)
-                                        if RB ~= nil then
-                                            table.remove(ABots, RB)
-                                        end
+                                end
+                                for i,v in next,SBots do
+                                    RV = tostring(v)
+                                    RB = table.find(ABots, RV)
+                                    if RB ~= nil then
+                                        table.remove(ABots, RB)
                                     end
-                                    tablelist = ABots
-								end
+                                end
+                                tablelist = ABots
                             end
 							for i, v in next, tablelist do
 								local button = Library:Create("ImageButton", {
