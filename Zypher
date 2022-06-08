@@ -1826,6 +1826,18 @@ function Library:CreateMain(Options)
 								}):Play()
 								SearchLock = true
 								Nil()
+                                TS:Create(Section.Container, TweenInfo.new(0.1), {
+                                    Size = Section.Container.Size - UDim2.new(0, 0, 0, 125)
+                                }):Play()
+                                TS:Create(Interactables.dropdownb, TweenInfo.new(0.1), {
+                                    Size = UDim2.new(0.982, 0, 0, 30)
+                                }):Play()
+                                TS:Create(Category.Container, TweenInfo.new(0.1), {
+                                    CanvasSize = Category.Container.CanvasSize - UDim2.new(0, 0, 0, 125)
+                                }):Play()
+                                TS:Create(Interactables.arrow, TweenInfo.new(0.1), {
+                                    Rotation = 90
+                                }):Play()
 								Interactables.selected.Text = tostring(selectedvalue) or tostring(Options.default)
 							end
 						end)
