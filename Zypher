@@ -1826,7 +1826,7 @@ function Library:CreateMain(Options)
 								}):Play()
 								SearchLock = true
 								Nil()
-								Interactables.selected.Text = tostring(Options.default) or tostring(selectedvalue)
+								Interactables.selected.Text = tostring(selectedvalue) or tostring(Options.default)
 							end
 						end)
 						
